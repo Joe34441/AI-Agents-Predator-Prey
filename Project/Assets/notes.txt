@@ -1,0 +1,60 @@
+An AI simulation of the genetic evolution of animals within a closed ecosystem
+
+Scene Ecosystem:
+- Each day lasts a certain amount of time
+- At night, night survivability attribute determins setup of the next day
+- Creatures have an amount of health point determined by their vitality attribute, at 0 they will die
+- Creatures have seperate Health, Hunger and Thirst statuses which determines behaviour
+
+Creature attributes:
+Vitality - Health points & regeneration speed
+Strength - Damage dealt
+Speed - Running and roaming speed
+Eye Sight - Distance can see
+Night Survivability - Liklihood of dying, surviving or multiplying during the night
+					- Also influences how soon creatures will start to seek shelter
+
+- Creatures will have a random number of points within a range, and allocate these points randomly to each attribute
+	e.g. from 40 to 50 points, creature gets 48 points to be distributed randomly 
+
+
+Health: Healthy, Wounded, Badly Wounded, Mortally wounded, Dead
+- Badly Wounded are slower, will regenerate health if eaten
+- Mortally wounded are much slower and will constantly lose health points until dead
+
+Hunger: Full, Satisfied, Hungry, Very Hungry, Starving
+- When very hungry or starving, targets may change
+- Starving creatures are slower and will constantly lose health points until they have eaten
+
+Thirst: Full, Satisfied, Thirsty, Very Thirsty, Severely Dehydrated
+- When very thirsty or severely dehydrated, targets may change
+- Severely dehydrated creatures are slower and will constantly lose health points until they have drank
+
+
+
+Night time & caves:
+- If a creature is not in a cave at night (24:00), it will die.
+- At (24:00), a panel is displayed showing information from the night
+- The time skips to the start of the next day (07:00)
+- Caves can hold multiple of the same creature type; 3 Wolves, 5 foxes, 10 rabbits
+- If a creature approaches a cave with weaker creatures inside, the weaker creatures will flee
+
+
+2 predator tiers, 1 prey
+
+pred 1 > pred 2 > prey 1
+
+
+Further notes on creature conditions & target acquisition:
+
+pred 1 hunts pred 2 normally
+pred 1 will hunt other pred 1s if starving and target is wounded
+pred 1 will eat dead pred 1s and dead pred 2s
+
+pred 2 hunts prey 1 normally
+pred 2 will follow other mortally wounded pred 2s if very hungry
+pred 2 will always run from pred 1
+pred 2 will eat dead 1s and dead 2s if very hungry
+
+prey 1 will keep distance from pred 1 but not run
+prey 1 always runs from pred 2
